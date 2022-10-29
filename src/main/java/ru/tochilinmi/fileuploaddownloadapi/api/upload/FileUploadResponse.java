@@ -12,5 +12,5 @@ public class FileUploadResponse {
     private String downloadUri;
     private Long size;
 
-    
+
 }

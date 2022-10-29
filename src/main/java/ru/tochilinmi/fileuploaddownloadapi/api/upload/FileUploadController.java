@@ -19,12 +19,12 @@ public class FileUploadController {
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         long size = multipartFile.getSize();
 
-        FileUploadUtil.saveFile(fileName,multipartFile);
+        String fileCode = FileUploadUtil.saveFile(fileName,multipartFile);
 
         FileUploadResponse response = new FileUploadResponse();
         response.setFileName(fileName);
         response.setSize(size);
-        response.setDownloadUri("/download_file");
+        response.setDownloadUri("/download_file/"+fileCode);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
